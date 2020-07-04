@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+    <title>Latihan Operasi Matematika</title>
     <link rel="stylesheet" href="mobile.css">
 
     <!-- update the version number as needed -->
@@ -36,6 +36,25 @@
       <input id="Kumpul" type="button" value="Jawab" onclick="requirefilled()">
     </div>
     <p id="status"></p>
+    <p id="totalsoal" style="display:inline;">Total soal: 0</p>
+    <p id="benar" style="display:inline;">Benar: 0</p>
+    <p id="salah" style="display:inline;">Salah: 0</p>
+    <br><br>
+
+    <button id="Eval">Evaluasi</button>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div id="Evalsalah">
+          <h2>Daftar soal yang salah:</h2>
+        </div>
+    </div>
+
+    </div>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
