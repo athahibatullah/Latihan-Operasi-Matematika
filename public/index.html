@@ -6,6 +6,9 @@
     <title>Latihan Operasi Matematika</title>
     <link rel="stylesheet" href="mobile.css">
 
+
+  </head>
+  <body>
     <!-- update the version number as needed -->
     <script defer src="/__/firebase/7.15.5/firebase-app.js"></script>
     <!-- include only the Firebase features as you need -->
@@ -15,8 +18,6 @@
     <script defer src="/__/firebase/7.15.5/firebase-storage.js"></script>
     <!-- initialize the SDK after all desired features are loaded -->
     <script defer src="/__/firebase/init.js"></script>
-  </head>
-  <body>
     <h2 id="pilih">Pilih operasi:</h2>
     <img id="plus" src="image/plus.png">
     <img id="minus" src="image/minus.png">
@@ -41,7 +42,8 @@
     <p id="salah" style="display:inline;">Salah: 0</p>
     <br><br>
 
-    <button id="Eval">Evaluasi</button>
+    <button id="Eval" style="display:inline;">Evaluasi</button>
+    <button id="Reset" onclick="location.reload();">Save & Reset</button>
 
     <!-- The Modal -->
     <div id="myModal" class="modal">
@@ -76,6 +78,17 @@
           document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
         }
       });
+    </script>
+    <script>
+      var config = {
+        apiKey: "AIzaSyDpw8QoznmXTATA_KyEl20SUpq_V03sWAA",
+        authDomain: "latihan-operasi-matematika.firebaseapp.com",
+        databaseURL: "https://latihan-operasi-matematika.firebaseio.com/",
+        storageBucket: "latihan-operasi-matematika.appspot.com"
+      };
+      firebase.initializeApp(config);
+      // Get a reference to the database service
+      var database = firebase.database();
     </script>
     <script src="app.js"></script>
   </body>

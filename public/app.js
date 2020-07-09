@@ -81,16 +81,18 @@ function Chooseoperation(){
 }
 function randomSoalkalibagi(){
     //var tipeoperasi = document.getElementById("operasi").value;
-    let max = 100;
-    let min = 1;
-
     if( tipeoperasi == "kali"){
+        let max = 10;
+        let min = 1;
+
         var firstNumber = Math.floor(Math.random() * (max - min + 1) ) + min;
         var secondNumber = Math.floor(Math.random() * (max - min + 1) ) + min;
         document.getElementById("Soal").innerHTML = firstNumber + "x" + secondNumber;
     }
     else if(tipeoperasi == "bagi"){
         while(true){
+          let max = 100;
+          let min = 1;
           var firstNumber = Math.floor(Math.random() * (max - min + 1) ) + min;
           var secondNumber = Math.floor(Math.random() * (max - min + 1) ) + min;
           if(firstNumber >= secondNumber && firstNumber % secondNumber == 0){
@@ -121,15 +123,24 @@ function randomSoalkalibagi(){
 
 function randomSoalplusminus(){
     //var tipeoperasi = document.getElementById("operasi").value;
-    let max = 100;
-    let min = 0;
-    let firstNumber = Math.floor(Math.random() * (max - min + 1) ) + min;
-    let secondNumber = Math.floor(Math.random() * (max - min + 1) ) + min;
     if(tipeoperasi == "plus"){
-        document.getElementById("Soal").innerHTML = firstNumber + "+" + secondNumber;
+      let max = 100;
+      let min = 0;
+      var firstNumber = Math.floor(Math.random() * (max - min + 1) ) + min;
+      var secondNumber = Math.floor(Math.random() * (max - min + 1) ) + min;
+      document.getElementById("Soal").innerHTML = firstNumber + "+" + secondNumber;
     }
     else if(tipeoperasi == "minus"){
-        document.getElementById("Soal").innerHTML = firstNumber + "-" + secondNumber;
+      while(true){
+        let max = 100;
+        let min = 0;
+        var firstNumber = Math.floor(Math.random() * (max - min + 1) ) + min;
+        var secondNumber = Math.floor(Math.random() * (max - min + 1) ) + min;
+        if(firstNumber >= secondNumber){
+            break;
+        }
+      }
+      document.getElementById("Soal").innerHTML = firstNumber + "-" + secondNumber;
     }
     if(gantioperasi){
       soalkeplus = 0;
@@ -167,7 +178,7 @@ function benarsalah(prevfirstNumber,prevsecondNumber,tipeoperasi){
             document.getElementById("status").style.color = "red";
             document.getElementById("salah").innerHTML = "Salah: "+ ++salah;
             var para = document.createElement("p");
-            var wrong = banyaksalah++ + ".)" + "Soal: " + prevfirstNumber + "+" + prevsecondNumber + '\xa0\xa0\xa0\xa0' +"Jawab: " + Answer + '\xa0\xa0' + "Koreksi: " + parseInt(prevfirstNumber + prevsecondNumber);
+            var wrong = banyaksalah++ + ".)" + "Soal: " + prevfirstNumber + "+" + prevsecondNumber + '\xa0\xa0' +"Jawab: " + Answer + '\xa0\xa0' + "Koreksi: " + parseInt(prevfirstNumber + prevsecondNumber);
 
             var node = document.createTextNode(wrong);
             para.appendChild(node);
@@ -186,11 +197,8 @@ function benarsalah(prevfirstNumber,prevsecondNumber,tipeoperasi){
             document.getElementById("status").innerHTML = "Salah";
             document.getElementById("status").style.color = "red";
             document.getElementById("salah").innerHTML = "Salah: "+ ++salah;
-            document.getElementById("status").innerHTML = "Salah";
-            document.getElementById("status").style.color = "red";
-            document.getElementById("salah").innerHTML = "Salah: "+ ++salah;
             var para = document.createElement("p");
-            var wrong = banyaksalah++ + ".)" + "Soal: " + prevfirstNumber + "-" + prevsecondNumber + '\xa0\xa0\xa0\xa0' +"Jawab: " + Answer + '\xa0\xa0' + "Koreksi: " + parseInt(prevfirstNumber - prevsecondNumber);
+            var wrong = banyaksalah++ + ".)" + "Soal: " + prevfirstNumber + "-" + prevsecondNumber + '\xa0\xa0' +"Jawab: " + Answer + '\xa0\xa0' + "Koreksi: " + parseInt(prevfirstNumber - prevsecondNumber);
             var node = document.createTextNode(wrong);
             para.appendChild(node);
             var element = document.getElementById("Evalsalah");
@@ -209,11 +217,8 @@ function benarsalah(prevfirstNumber,prevsecondNumber,tipeoperasi){
             document.getElementById("status").innerHTML = "Salah";
             document.getElementById("status").style.color = "red";
             document.getElementById("salah").innerHTML = "Salah: "+ ++salah;
-            document.getElementById("status").innerHTML = "Salah";
-            document.getElementById("status").style.color = "red";
-            document.getElementById("salah").innerHTML = "Salah: "+ ++salah;
             var para = document.createElement("p");
-            var wrong = banyaksalah++ + ".)" + "Soal: " + prevfirstNumber + "x" + prevsecondNumber + '\xa0\xa0\xa0\xa0' +"Jawab: " + Answer + '\xa0\xa0' + "Koreksi: " + parseInt(prevfirstNumber * prevsecondNumber);
+            var wrong = banyaksalah++ + ".)" + "Soal: " + prevfirstNumber + "x" + prevsecondNumber + '\xa0\xa0' +"Jawab: " + Answer + '\xa0\xa0' + "Koreksi: " + parseInt(prevfirstNumber * prevsecondNumber);
             var node = document.createTextNode(wrong);
             para.appendChild(node);
             var element = document.getElementById("Evalsalah");
@@ -231,12 +236,9 @@ function benarsalah(prevfirstNumber,prevsecondNumber,tipeoperasi){
         else{
             document.getElementById("status").innerHTML = "Salah";
             document.getElementById("status").style.color = "red";
-            document.getElementById("salah").innerHTML = "Salah: "+ ++salah;
-            document.getElementById("status").innerHTML = "Salah";
-            document.getElementById("status").style.color = "red";
-            document.getElementById("salah").innerHTML = "Salah: "+ ++salah;
+            document.getElementById("salah").innerHTML = "Salah: "+ ++salah
             var para = document.createElement("p");
-            var wrong = banyaksalah++ + ".)" + "Soal: " + prevfirstNumber + "/" + prevsecondNumber + '\xa0\xa0\xa0\xa0' +"Jawab: " + Answer + '\xa0\xa0' + "Koreksi: " + parseInt(prevfirstNumber / prevsecondNumber);
+            var wrong = banyaksalah++ + ".)" + "Soal: " + prevfirstNumber + "/" + prevsecondNumber + '\xa0\xa0' +"Jawab: " + Answer + '\xa0\xa0' + "Koreksi: " + parseInt(prevfirstNumber / prevsecondNumber);
             var node = document.createTextNode(wrong);
             para.appendChild(node);
             var element = document.getElementById("Evalsalah");
@@ -245,6 +247,16 @@ function benarsalah(prevfirstNumber,prevsecondNumber,tipeoperasi){
     }
     document.getElementById("totalsoal").innerHTML = "Total soal: "+ ++totalsoal;
     // console.log(Answer);
+}
+
+document.getElementById("Reset").onclick = function(){
+  function writeUserData(userId, name, email, imageUrl) {
+  firebase.database().ref('users/' + userId).set({
+    username: name,
+    email: email,
+    profile_picture : imageUrl
+  });
+}
 }
 
 // Get the modal
